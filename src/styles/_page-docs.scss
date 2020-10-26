@@ -1,0 +1,46 @@
+@use 'fonts' as *;
+
+.object {
+  margin-top: 0.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+  .method {
+    opacity: 0.5;
+  }
+  .param {
+    color: black;
+  }
+  .attributes {
+    opacity: 0.5;
+  }
+  h4 + .example-requests {
+    margin-top: 0.5rem;
+  }
+  pre + pre {
+    margin-top: 1rem;
+  }
+  table {
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    text-align: left;
+    td,
+    th {
+      padding-right: 1.5em;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+    td {
+      vertical-align: top;
+      padding-top: 0.75rem;
+      line-height: 1.5;
+      &:nth-child(2) {
+        opacity: 0.75;
+      }
+    }
+    th {
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+  }
+}

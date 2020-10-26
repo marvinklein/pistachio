@@ -1,0 +1,20 @@
+extends templates/page.pug
+
+block body
+  main#index
+    section
+      h1 pistachio
+      p Pistachio is a #[abbr(title='representational state transfer ') REST]ful #[abbr(title='application programming interface') API] for food data. Start by reading the #[a(href='/docs') API docs].
+
+    section
+      h3 Data
+      p Pistachio currently has ~3300 #[a(href='/docs#node') nodes].
+      p The data is curated by hand using custom-built tools to ingest and parse source data. The raw data comes from cookbooks, Wikipedia, public databases, etc. If you have data you’d like to contribute, #[a(href="mailto:pistachio@marvinklein.com") send me an email]. I’m currently working on expanding the data and schema to include the source of the data where possible.
+
+    section
+      h3 Stack
+      p #[strong Node] with restify for the API
+      p #[strong Webpack], pug, sass to build these static docs. Source #[a(href='https://github.com/marvinklein/pistachio') on GitHub]
+      p #[strong Namecheap] for domain registration and DNS
+      p #[strong Docker] to containerize the API
+      p #[strong Google Cloud Platform] for infrastructure

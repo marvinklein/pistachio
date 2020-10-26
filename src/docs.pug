@@ -1,0 +1,85 @@
+extends templates/page.pug
+
+block body
+  main#docs
+    section
+      h1 pistachio API docs
+      p The pistachio API is organized around REST. The API accepts JSON request bodies, returns JSON responses, and uses standard HTTP verbs and response codes. Currently no endpoints require authentication.
+      p The API endpoint is #[a(href='https://api.pistachio.ai') https://api.pistachio.ai]
+    section
+      h2 Objects
+      .object
+        h3 Nodes
+        p.description Nodes represent objects like ingredients or recipes in pistachio’s knowledge base. The line is often blurry: #[em mayonnaise] might be an ingredient in a recipe, or a recipe unto itself, so all real-world items—and classes of items such as #[em fruits]—are accessible as nodes.
+        h4 Endpoint
+        p #[code #[span.method GET] /nodes/#[span.param :id]]
+        h4 URL Params
+        p #[code id #[span.attributes String, required]]
+        h4 Success Response
+        pre.
+          { 
+            "id": "5f0dc26396cace915e4e739d",
+            "data": {
+              ... // a node
+            } 
+          }
+        h4#node The Node object
+        table
+          tr
+            th Attributes
+            th Type
+            th Description
+          tr
+            td #[code id]
+            td #[code String]
+            td The node’s unique id
+          tr
+            td #[code meta]
+            td
+              code Object[]
+            td The node’s meta properties
+          tr
+            td
+              code meta[].name
+            td
+              code String
+            td The name of the meta property
+          tr
+            td
+              code meta[].kind
+            td
+              code ENUM ["Text"|"Array"|"Number"|"Link"]
+            td The type of the meta property;
+              code 
+          tr
+            td
+              code meta[].value
+            td
+              code String|Number|Object
+            td The value of the meta property. The type of the value is given by the meta object’s #[code kind] property. Some meta properties, like "Wikipedia Link" appear on most nodes. Others, like "Boiling Point", only make sense for a few nodes. The list of available meta properties changes as the knowledge base expands, though I‘ll try not to change the shape of any given property. I‘m working on an endpoint and documentation for all available meta properties.
+          tr
+            td #[code name]
+            td #[code String]
+            td The node’s common name.
+          tr
+            td #[code synonyms]
+            td
+              code String[]
+            td Synonyms of the node
+            
+        h4 Example Requests
+        .example-requests
+          pre.
+            curl https://api.pistachio.ai/nodes/5f0dc26396cace915e4e739d
+          pre.
+            fetch("https://api.pistachio.ai/nodes/5f0dc26396cace915e4e739d")
+              .then(response => response.json())
+              .then(data => console.log(data));
+        h4 Error Responses
+        p #[code 404 NOT FOUND]
+        pre.
+          {
+            "error": {
+              "message": "invalid id"
+            }
+          }

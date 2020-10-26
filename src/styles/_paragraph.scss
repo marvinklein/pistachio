@@ -1,0 +1,47 @@
+@use "fonts" as *;
+
+body {
+  font-size: 16px;
+  font-weight: 300;
+  font-family: $font-family-sans;
+  color: #16002d;
+}
+
+p {
+  h1 + &,
+  h2 + & {
+    margin-top: 1rem;
+  }
+  h3 + & {
+    margin-top: 0.75rem;
+  }
+  h4 + & {
+    margin-top: 0.25rem;
+  }
+  p + & {
+    margin-top: 0.25rem;
+  }
+  max-width: 34em;
+  line-height: 1.5;
+}
+
+a {
+  color: #4422ff;
+}
+
+pre,
+code {
+  font-family: $font-family-mono;
+  font-variant-ligatures: none;
+}
+
+pre {
+  padding-left: 1em;
+  border-left: 1px solid #ccc;
+  p + & {
+    margin-top: 0.5rem;
+  }
+  h4 + & {
+    margin-top: 0.5rem;
+  }
+}

@@ -1,0 +1,38 @@
+@use "styles/resets" as *;
+@use "styles/headings" as *;
+@use "styles/paragraph" as *;
+@use "styles/page-docs" as *;
+
+$content-margin-x: 25px;
+$content-max-width: 1050px;
+
+main {
+  padding-bottom: 30vh;
+  &#index {
+    padding-top: 20vh;
+    h1 {
+      font-size: 4rem;
+    }
+    h1 + p {
+      margin-top: 1.5rem;
+      font-size: 1.25rem;
+    }
+  }
+  &#docs {
+    padding-top: 5vh;
+  }
+}
+
+header,
+main,
+footer {
+  margin: 0 $content-margin-x;
+  @media (min-width: $content-max-width + ($content-margin-x * 2)) {
+    max-width: $content-max-width;
+    margin: 0 auto;
+  }
+}
+
+section + section {
+  margin-top: 5rem;
+}
