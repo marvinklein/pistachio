@@ -26,3 +26,16 @@ block body
       p #[strong Node] with restify for the API
       p #[strong Umami] for web analytics
       p #[strong Webpack], pug, sass to build these static docs. Source #[a(href='https://github.com/marvinklein/pistachio') on GitHub]
+
+    section
+      h3 Roadmap
+      ul
+        li Add the node’s edges to the returned data for a node.
+        li Add a /search endpoint: Text search for nodes e.g. 'milk' with ranked results
+        li Add a /match endpoint: Search the data with complex input objects describing e.g. { plant-based oils with a smoke point over 250°F }
+        li Add a /parse endpoint: Parse natural language queries like '1 cup pureed squash or pumpkin' into structured data
+        li Add sources to the data model.
+        li Add public endpoints to add and update data.
+          ul 
+            li.requires Add authentication
+
