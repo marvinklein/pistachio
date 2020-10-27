@@ -12,10 +12,17 @@ block body
       p The data is curated by hand using custom-built tools to ingest and parse source data. The raw data comes from cookbooks, Wikipedia, public databases, etc. If you have data you’d like to contribute, #[a(href="mailto:pistachio@marvinklein.com") send me an email]. I’m currently working on expanding the data and schema to include the source of the data where possible.
 
     section
+      h3 Privacy and Terms
+      p There are no third party tracking or advertising scripts on this site, and I have no plans to add any.
+      p I use a pistachio-hosted instance of #[a(href='https://github.com/mikecao/umami') Umami] for basic web analytics. Umami does not collect any personally identifiable information and anonymizes all data collected. Users cannot be identified and are never tracked across websites.
+      p You may use the API in your own applications (that’s what it’s there for!), but you may not permanently store the data retrieved or redistribute the data as such. If you’re doing something cool with the data, #[a(href='mailto:pistachio@marvinklein.com') let me know]!
+
+    section
       h3 Stack
+      p #[strong Docker] to containerize each app (this static site, the API, web analytics)
+      p #[strong Google Cloud Platform] for infrastructure
+      p #[strong Namecheap] for domain registration and DNS
       p #[strong Nginx] to serve this static site
       p #[strong Node] with restify for the API
+      p #[strong Umami] for web analytics
       p #[strong Webpack], pug, sass to build these static docs. Source #[a(href='https://github.com/marvinklein/pistachio') on GitHub]
-      p #[strong Namecheap] for domain registration and DNS
-      p #[strong Docker] to containerize the API
-      p #[strong Google Cloud Platform] for infrastructure
