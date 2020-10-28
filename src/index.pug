@@ -9,13 +9,16 @@ block body
     section
       h3 Data
       p Pistachio currently has ~3300 #[a(href='/docs#node') nodes].
-      p The data is curated by hand using custom-built tools to ingest and parse source data. The raw data comes from cookbooks, Wikipedia, public databases, etc. If you have data you’d like to contribute, #[a(href="mailto:pistachio@marvinklein.com") send me an email]. I’m currently working on expanding the data and schema to include the source of the data where possible.
+      p The data is curated by hand using custom-built tools to ingest and parse source data. The raw data comes from cookbooks, Wikipedia, public databases, etc. I’m currently working on expanding the data and schema to include the source of the data where possible.
+      p If you have data you’d like to contribute, or if you’re doing something cool with the data, #[a(href='mailto:pistachio@marvinklein.com') let me know]!
 
-    section
+    section#terms
       h3 Privacy and Terms
-      p There are no third party tracking or advertising scripts on this site, and I have no plans to add any.
-      p I use a pistachio-hosted instance of #[a(href='https://github.com/mikecao/umami') Umami] for basic web analytics. Umami does not collect any personally identifiable information and anonymizes all data collected. Users cannot be identified and are never tracked across websites.
-      p You may use the API in your own applications (that’s what it’s there for!), but you may not permanently store the data retrieved or redistribute the data as such. If you’re doing something cool with the data, #[a(href='mailto:pistachio@marvinklein.com') let me know]!
+      .sub-section
+        p There are no third party tracking or advertising scripts on this site, and I have no plans to add any.
+        p I use a pistachio-hosted instance of #[a(href='https://github.com/mikecao/umami') Umami] for basic web analytics. Umami does not collect any personally identifiable information and anonymizes all data collected. Users cannot be identified and are never tracked across websites.
+      .sub-section
+        p You may store data you retrieve from the API only for caching purposes, for up to 24 hours. You may, however, permanently store object IDs to simplify the future retrieval of data.
 
     section
       h3 Stack
