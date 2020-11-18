@@ -15,10 +15,9 @@ p {
   h3 + & {
     margin-top: 0.75rem;
   }
-  h4 + & {
-    margin-top: 0.25rem;
-  }
-  p + & {
+  h4 + &,
+  p + &,
+  pre + & {
     margin-top: 0.25rem;
   }
   max-width: 34em;

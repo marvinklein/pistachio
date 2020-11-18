@@ -11,21 +11,24 @@ block body
     section
       h2 Objects
       .object
-        h3 Nodes
+        h3#node Nodes
         p.description Nodes represent objects like ingredients or recipes in pistachio’s knowledge base. The line is often blurry: #[em mayonnaise] might be an ingredient in a recipe, or a recipe unto itself, so all real-world items—and classes of items such as #[em fruits]—are accessible as nodes.
         h4 Endpoint
         p #[code #[span.method GET] /nodes/#[span.param :id]]
         h4 URL Params
-        p #[code id #[span.attributes String, required]]
+        table
+          tr
+            td #[code id]
+            td #[span.attributes String, required]
         h4 Success Response
         pre.
           { 
-            "id": "5f0dc26396cace915e4e739d",
+            "status": "ok",
             "data": {
               ... // a node
             } 
           }
-        h4#node The Node object
+        h4 The Node object
         table
           tr
             th Attributes
@@ -82,6 +85,43 @@ block body
         pre.
           {
             "error": {
+              "status": "error",
               "message": "invalid id"
             }
           }
+    section
+      h2 Methods
+      .object
+        h3#search Search
+        p.description Search #[a(href='#node') nodes] using the #[code name] and #[code synonyms] attributes.
+        h4 Endpoints
+        p #[code #[span.method GET] /search/#[span.param :query]]
+        h4 URL Params
+        table
+          tr
+            td #[code query]
+            td #[span.attributes String, required]
+        h4 Success Response
+        pre.
+          {
+            status: "ok",
+            data: [
+              { 
+                "score": 4.2786,
+                "node": {
+                  ... // a node
+                } 
+              },
+              ...
+            ]
+          }
+        p The data object is an array of matches where each match contains a score and a #[a(href='#node') node]. The score can be used to rank results both within a single query, and across queries. Scoring is loosely based on #[a(href='https://www.elastic.co/guide/en/elasticsearch/guide/current/practical-scoring-function.html') Lucene’s practical scoring function], though pistachio’s scoring algorithm also considers additional factors, such as each node’s postion in the knowledge graph and how common it is.
+            
+        h4 Example Requests
+        .example-requests
+          pre.
+            curl https://api.pistachio.ai/search/pistachio
+          pre.
+            fetch("https://api.pistachio.ai/search/pistachio")
+              .then(response => response.json())
+              .then(data => console.log(data));
